@@ -1,3 +1,4 @@
+
 default: &default
   adapter: mysql2
   encoding: utf8mb4
@@ -8,14 +9,14 @@ default: &default
 
 development:
   <<: *default
-  database: ProjectName_development
+  database: intern_development
 
 test:
   <<: *default
-  database: ProjectName_test
+  database: intern_test
 
 production:
   <<: *default
-  database: ProjectName_production
-  username: ProjectName
-  password: <%= ENV["PROJECTNAME_DATABASE_PASSWORD"] %>
+  database: intern_production
+  username: intern
+  password: <%= ENV['INTERN_DATABASE_PASSWORD'] %>
