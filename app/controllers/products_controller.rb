@@ -3,7 +3,13 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
+    # byebug
+    if params[:q] == "0"
+      @products=Product.joins(:categories).joins(:product_categories).where(product_categories: {category_id: params[:search]})
+    end
+    @categories= Category.all
   end
 
   # GET /products/1 or /products/1.json
