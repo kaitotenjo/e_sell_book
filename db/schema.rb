@@ -10,11 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_25_095733) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_27_095200) do
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orderitems", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "product_id", null: false
+    t.integer "quantity"
+    t.decimal "until_price", precision: 10
+    t.decimal "total", precision: 10, default: "0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_orderitems_on_order_id"
+    t.index ["product_id"], name: "index_orderitems_on_product_id"
+  end
+
+  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.decimal "subtotal", precision: 10
+    t.decimal "total", precision: 10
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "product_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -54,6 +76,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_095733) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orderitems", "orders"
+  add_foreign_key "orderitems", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
 end
