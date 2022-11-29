@@ -3,3 +3,32 @@
     border-radius: 12px;
     padding: 15px;
 }
+.setting-update-cart-right{
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid #e1e1e1;
+    padding: 14px 35px;
+    display: inline-block;
+    float: right;
+}
+.setting-update-cart-left{
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid #e1e1e1;
+    padding: 14px 35px;
+    display: inline-block;
+    float: left;
+}
+.name-hearder{
+    color:white;
+}
+.btn-check:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show {
+    background-color: white;
+}
+.s-drop{
+    color:black;
+}

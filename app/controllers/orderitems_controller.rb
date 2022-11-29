@@ -8,10 +8,8 @@ class OrderitemsController < ApplicationController
       @order.save
       redirect_back(fallback_location: root_path)
     else 
-      old_quantity = @orderitem.quantity
       @orderitem = @order.orderitems.find_by(product_id: @orderitem.product_id)
-      new_quantity = @orderitem.quantity + old_quantity
-      @orderitem.update_attribute(:quantity,new_quantity)
+      @orderitem.update_attribute(:quantity,params[:quantity])
       redirect_back(fallback_location: root_path)
     end
   end

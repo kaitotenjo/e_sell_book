@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
-   
-
-    def index
-    end
+    before_action :check_login
+    def index;end
 
     private
 
