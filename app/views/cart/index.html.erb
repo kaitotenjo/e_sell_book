@@ -60,14 +60,10 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="continue__btn">
-                                    <a href="#">Continue Shopping</a>
-                                </div>
+                               <button type="button" class="btn btn-light setting-update-cart-left">Continue Shopping</button>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                
-                                    <a> <%= f.submit "update" ,class: "btn btn-dark"%></a>
-                     
+                                <a> <%= f.submit "update cart" ,class: "btn btn-dark setting-update-cart-right"%></a>
                             </div>      
                         </div>
                         <%end%>
@@ -79,14 +75,14 @@
                         <input type="text" placeholder="Coupon code">
                         <button type="submit">Apply</button>
                     </form>
-                </div>
+                </div>  
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
                         <li>Subtotal <span><%=current_order.subtotal%></span></li>
                         <li>Total <span><%=current_order.subtotal%></span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Proceed to checkout</a>
+                    <a><%= link_to "checkout", payments_path ,class:"primary-btn" %></a>
                 </div>
             </div>
         </div>

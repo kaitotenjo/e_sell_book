@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
     has_many :orderitems
+    has_one :payment
     belongs_to :user
     before_save :set_subtotal
     enum status: [ :pending , :completed]
