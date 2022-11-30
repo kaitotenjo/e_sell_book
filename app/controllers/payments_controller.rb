@@ -18,4 +18,6 @@ class PaymentsController < ApplicationController
       params.permit(  :card_number, :MM_YY, :code, :name_card)
     end
 
+    
+
 end

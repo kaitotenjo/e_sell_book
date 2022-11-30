@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   enum role: [:user ,:admin]
   after_commit :add_default_avatar, on:%i[create update] 
+  # after_commit :add_default_name, on:%i[create update]
   
   def avatar_thumbnail
     avatar.variant(resize_to_limit: [150,150]).processed
@@ -26,4 +27,7 @@ class User < ApplicationRecord
 
       )
   end
+
+  # def add_default_name
+  # end
 end
