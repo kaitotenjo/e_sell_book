@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  before_action :check_login
+  before_action :authentication
   before_action :get_order_items ,only: [:index,:update_quantity]
 
   def index; end

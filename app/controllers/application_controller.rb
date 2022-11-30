@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
  
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_order
+  helper_method :authetication
   helper_method :check_login
 
   protected
@@ -14,20 +15,20 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-      @order=Order.find_by(status: "pending")
-      if @order.nil? || @order.user_id != current_user.id
-        Order.new(user_id: current_user.id )
-      else
-        return @order
-      end
+    @order=Order.where(status: "pending",user_id:current_user.id)
+    if @order.nil? 
+      Order.new(user_id: current_user.id )
+    else
+      return @order
+    end
   end 
 
+  def authentication
+    return @user=current_user if user_signed_in?
+  end
+   
   def check_login
-    if  current_user.nil?
-      redirect_to user_session_path
-    else
-      @user=current_user
-    end
+    return redirect_to user_session_path if authentication.nil? 
   end
   
   def render_not_found

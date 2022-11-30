@@ -1,6 +1,6 @@
 class OrderitemsController < ApplicationController
-  before_action :check_login 
-  before_action :set_order , only: [:create,:update_quantity]
+  before_action :check_login
+  before_action :set_order , only: [:create]
   
 
   def create
@@ -18,7 +18,7 @@ class OrderitemsController < ApplicationController
   private
 
   def order_params
-    params.permit(  :product_id,:quantity)
+    params.permit( :quantity)
   end
 
   def set_order
