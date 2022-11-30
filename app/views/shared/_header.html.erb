@@ -15,8 +15,9 @@
                                     <button class="btn dropdown-toggle name-hearder" type="button" data-bs-toggle="dropdown">Account
                                     <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                        <li><a><%= link_to "Profile", user_path(@user) ,class:"s-drop" %></a></li>
-                                        <li><a><%= link_to "Sign out", destroy_user_session_path, method: :delete %></a></li>
+                                        <li ><a><%= link_to "Profile", user_path(@user) ,class:"s-drop" %></a></li>
+                                        <li ><a><%= link_to "edit", edit_user_registration_path(@user) ,class:"s-drop" %></a></li>
+                                        <li><a><%= link_to "Sign out", destroy_user_session_path, method: :delete ,class:"s-drop"%></a></li>
                                     <li class="divider"></li>
                                     </ul>
                                 </div>

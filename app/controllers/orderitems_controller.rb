@@ -1,6 +1,7 @@
 class OrderitemsController < ApplicationController
+  before_action :check_login 
   before_action :set_order , only: [:create,:update_quantity]
-  before_action :check_login , only: [:create]
+  
 
   def create
     @orderitem = @order.orderitems.new(order_params)
