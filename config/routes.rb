@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admins do
+    get 'dashboard', to:"dashboard#index"
+  end
   
   root "home#index"
 
@@ -8,7 +11,9 @@ Rails.application.routes.draw do
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     
   end
-  devise_for :users
+  devise_for :users, controllers: { 
+    sessions: "users/sessions" 
+  }
   resources :homes
   resources :products
   resources :users

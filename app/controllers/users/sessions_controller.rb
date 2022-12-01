@@ -9,9 +9,13 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    if current_user.admin?
+      redirect_to admins_dashboard_path
+    else
+      super
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy
