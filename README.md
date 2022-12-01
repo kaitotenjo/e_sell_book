@@ -39,6 +39,7 @@ Web:
 - [x] Hiển thị list sản phẩm theo danh mục , tìm kiếm sản phẩm
 - [x] Hiển thị chi tiết sản phẩm 
 - [x] Add cart và checkout
+
 Admin: 
 - [ ] Login, logout 
 - [ ] quản lý sản phẩm 
