@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_092031) do
     t.bigint "product_id", null: false
     t.integer "quantity"
     t.decimal "until_price", precision: 10
-    t.decimal "total", precision: 10, default: "0"
+    t.decimal "total", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_orderitems_on_order_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_092031) do
     t.bigint "order_id", null: false
     t.bigint "user_id", null: false
     t.string "card_number"
-    t.date "MM_YY"
+    t.string "MM_YY"
     t.string "code"
     t.string "name_card"
     t.datetime "created_at", null: false
