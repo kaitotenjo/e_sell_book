@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   namespace :admins do
+    resources :orders
     resources :users
     resources :products
     get 'dashboard', to:"dashboard#index"
   end
   
   root "home#index"
-
   post '/cart/update', to:'cart#update_quantity'
   post "payments/checkout",to:"payments#checkout"
   

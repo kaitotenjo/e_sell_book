@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    @order=Order.where(status: "pending",user_id:current_user.id)
+    @order=Order.find_by(status: "pending",user_id:current_user.id)
     if @order.nil? 
       Order.new(user_id: current_user.id )
     else
