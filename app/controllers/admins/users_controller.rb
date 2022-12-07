@@ -4,7 +4,7 @@ class Admins::UsersController < ApplicationController
 
   # GET /admins/users or /admins/users.json
   def index
-    @admins_users = User.all.page(params[:page]).per(2)
+    @admins_users = User.all.page(params[:page]).per(7).includes(avatar_attachment: :blob)
   end
 
   # GET /admins/users/1 or /admins/users/1.json
