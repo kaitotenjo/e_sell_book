@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   namespace :admins do
+    
+    get 'dashboard', to:"dashboard#index"
     resources :orders
     resources :users
     resources :products
-    get 'dashboard', to:"dashboard#index"
   end
   
   root "home#index"

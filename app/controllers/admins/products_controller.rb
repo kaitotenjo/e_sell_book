@@ -18,6 +18,8 @@ class Admins::ProductsController < ApplicationController
 
   # GET /admins/products/1/edit
   def edit
+    @product_category= @product.product_categories
+    @categories= Category.all
   end
 
   # POST /admins/products or /admins/products.json
@@ -37,6 +39,7 @@ class Admins::ProductsController < ApplicationController
 
   # PATCH/PUT /admins/products/1 or /admins/products/1.json
   def update
+    byebug
     respond_to do |format|
       if @product.update(admins_product_params)
         format.html { redirect_to admins_product_url(@product), notice: "Product was successfully updated." }
@@ -67,6 +70,6 @@ class Admins::ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admins_product_params
-      params.fetch(:admins_product, {})
+      params.permit( :name, :price, :discription, :amount, :image, pictures:[])
     end
 end
