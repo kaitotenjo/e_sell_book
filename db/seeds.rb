@@ -46,3 +46,21 @@ product = Product.create(
 )
 ProductCategory.create(product: product , category: category3)
 end
+
+User.create(
+    email: "admin@email.com",
+    password: "123qwe",
+    password_confirmation: "123qwe",
+    role:1
+)
+50.times do |n|
+
+    email="user#{n+1}@gmail.com"
+    password= "123qwe"
+    password_confirmation= "123qwe"
+User.create(
+    email: email,
+    password: password,
+    password_confirmation:password_confirmation
+)
+end
