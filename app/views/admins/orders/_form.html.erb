@@ -1,0 +1,17 @@
+<%= form_with(model: admins_order) do |form| %>
+  <% if admins_order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(admins_order.errors.count, "error") %> prohibited this admins_order from being saved:</h2>
+
+      <ul>
+        <% admins_order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
