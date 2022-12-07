@@ -1,0 +1,60 @@
+
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">User</h4>
+            <div class="table-responsive">
+            <%= link_to "add",new_admins_user_path,class:"btn btn-success add-user" %>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>
+                      avatar
+                    </th>
+                    <th>
+                      email
+                    </th>
+                    <th>
+                      name
+                    </th>
+                    <th>
+                      role
+                    </th>
+                    <th>
+                      action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @admins_users.each do |user|%>
+                    <tr>
+                      <td class="py-1">
+                        <%= image_tag(user.avatar) %>
+                      </td>
+                      <td>
+                        <%= user.email%>
+                      </td>
+                      <td>
+                        <%= user.name%>
+                      </td>
+                      <td>
+                        <%= user.role%>
+                      </td>
+                      <td>
+                      <%= link_to "edit", edit_admins_user_path(user),class:"btn btn-success" %>
+                      <%= button_to "delete", admins_user_path(user),method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}},class:"btn btn-danger" %>
+                      </td>
+                    </tr>
+                  <%end%>
+                  
+                </tbody>
+              </table>
+              <%= paginate @admins_users ,:theme => 'twitter-bootstrap-3' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
