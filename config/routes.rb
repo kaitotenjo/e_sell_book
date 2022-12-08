@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :admins do
-    
     get 'dashboard', to:"dashboard#index"
     resources :orders
+    resources :order_items
     resources :users
     resources :products
   end

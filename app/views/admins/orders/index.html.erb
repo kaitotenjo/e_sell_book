@@ -53,7 +53,7 @@
                       <%end%>
                       </td>
                       <td>
-                      <%# <%= link_to "edit", edit_admins_product_path(product),class:"btn btn-success" %> %>
+                      <%= link_to "edit", edit_admins_order_path(order),class:"btn btn-success" %>
                       <%= button_to "delete", admins_order_path(order),method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}},class:"btn btn-danger" %>
                       </td>
                     </tr>

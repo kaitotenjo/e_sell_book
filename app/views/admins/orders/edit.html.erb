@@ -1,10 +1,70 @@
-<h1>Editing order</h1>
 
-<%= render "form", admins_order: @admins_order %>
-
-<br>
-
-<div>
-  <%= link_to "Show this order", @admins_order %> |
-  <%= link_to "Back to orders", admins_orders_path %>
-</div>
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">order items</h4>
+            <div class="table-responsive">
+            <%= link_to "add",new_admins_user_path,class:"btn btn-success add-user" %>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>
+                      ID
+                    </th>
+                    <th>
+                      Order_ID
+                    </th>
+                    <th>
+                      Product_ID
+                    </th>
+                    <th>
+                      quantity
+                    </th>
+                    <th>
+                      until price
+                    </th>
+                    <th>
+                      total
+                    </th>
+                    <th>
+                      action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @order_items.each do |order_item|%>
+                    <tr>
+                      <td class="py-1">
+                        <%= order_item.id%>
+                      </td>
+                      <td>
+                        <%= @admins_order.id%>
+                      </td>
+                      <td>
+                        <%= order_item.product.id%>
+                      </td>
+                      <td>
+                        <%= order_item.quantity%>
+                      </td>
+                      <td>
+                        <%= order_item.product.price%>
+                      </td>
+                      <td>
+                        <%= order_item.product.price*order_item.quantity%>
+                      </td>
+                      <td>
+                      <%= link_to "edit",  edit_admins_order_item_path(order_item),class:"btn btn-success" %>
+                      <%= button_to "delete", admins_order_item_path(order_item),method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}},class:"btn btn-danger" %>
+                      </td>
+                    </tr>
+                  <%end%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

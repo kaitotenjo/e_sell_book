@@ -1,10 +1,15 @@
-<h1>Editing user</h1>
-
-<%= render "form", admins_user: @admins_user %>
-
-<br>
-
-<div>
-  <%= link_to "Show this user", @admins_user %> |
-  <%= link_to "Back to users", admins_users_path %>
+<div class="main-panel">        
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+          <h1> Edit Users </h1>
+            <%= render "form", admins_user: @admins_user %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<br>
