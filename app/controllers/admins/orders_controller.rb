@@ -18,6 +18,7 @@ class Admins::OrdersController < ApplicationController
 
   # GET /admins/orders/1/edit
   def edit
+    @order_items=@admins_order.orderitems
   end
 
   # POST /admins/orders or /admins/orders.json

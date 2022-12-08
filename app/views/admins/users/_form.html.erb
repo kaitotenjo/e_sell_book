@@ -1,17 +1,27 @@
-<%= form_with(model: admins_user) do |form| %>
-  <% if admins_user.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(admins_user.errors.count, "error") %> prohibited this admins_user from being saved:</h2>
-
-      <ul>
-        <% admins_user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.submit %>
+ <%= form_with(url: admins_user_path, method: :patch) do |f|  %>
+  <div class="form-group">
+  <%if @admins_user.avatar.attached?%>
+    <%=image_tag(@admins_user.avatar,height: "175", width: "175")%>
+  <%end%>
   </div>
-<% end %>
+  <div class="form-group">    
+    <label>File upload</label>
+    <input type="file" name="img[]" class="file-upload-default">
+    <div class="input-group col-xs-12">
+      <%=f.file_field :avatar%>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputName1">Name</label>
+    <%= f.text_field :name, autofocus: true , class:"form-control", value: @admins_user.name ,placeholder:"Name of book"%>
+  </div>  
+  <div class="form-group">
+      <label for="exampleInputName1">Email</label>
+      <%= f.text_field :email, autofocus: true , class:"form-control", value: @admins_user.email ,placeholder:"price"%>
+  </div>
+  <div class="form-group">
+  <%= f.check_box(:role,checked: @admins_user.role=="admin" )%> is admin?
+  </div>
+  <%= f.submit "submit" ,class: "btn btn-primary mr-2"%>
+  <%= link_to "Cancel", admins_products_path,class:"btn btn-light" %>
+<%end%>

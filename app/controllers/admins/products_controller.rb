@@ -39,7 +39,6 @@ class Admins::ProductsController < ApplicationController
 
   # PATCH/PUT /admins/products/1 or /admins/products/1.json
   def update
-    byebug
     respond_to do |format|
       if @product.update(admins_product_params)
         format.html { redirect_to admins_product_url(@product), notice: "Product was successfully updated." }
