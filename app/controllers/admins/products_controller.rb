@@ -1,5 +1,7 @@
 class Admins::ProductsController < ApplicationController
   before_action :set_admins_product, only: %i[ show edit update destroy ]
+  before_action :set_categories, only: %i[edit new create update]
+  before_action :set_product_categories , only: %i[edit]
   layout"admins/base"
 
   # GET /admins/products or /admins/products.json
@@ -14,17 +16,20 @@ class Admins::ProductsController < ApplicationController
   # GET /admins/products/new
   def new
     @product = Product.new
+    @product_categories= []
   end
 
   # GET /admins/products/1/edit
   def edit
-    @product_category= @product.product_categories
-    @categories= Category.all
   end
 
   # POST /admins/products or /admins/products.json
   def create
     @product = Product.new(admins_product_params)
+
+    @categories.each do |category|
+      ProductCategory.create(product: @product , category: category) if params[category.id.to_s]=="1"
+    end
 
     respond_to do |format|
       if @product.save
@@ -39,6 +44,14 @@ class Admins::ProductsController < ApplicationController
 
   # PATCH/PUT /admins/products/1 or /admins/products/1.json
   def update
+    @categories.each do |category|
+      if params[category.id.to_s]=="1"
+        ProductCategory.create(product: @product , category: category) if ProductCategory.find_by(product: @product , category: category).nil?
+      else  
+        ProductCategory.find_by(product: @product , category: category).destroy
+      end
+    end
+
     respond_to do |format|
       if @product.update(admins_product_params)
         format.html { redirect_to admins_product_url(@product), notice: "Product was successfully updated." }
@@ -48,6 +61,7 @@ class Admins::ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /admins/products/1 or /admins/products/1.json
@@ -70,5 +84,16 @@ class Admins::ProductsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def admins_product_params
       params.permit( :name, :price, :discription, :amount, :image, pictures:[])
+    end
+
+    def set_categories
+      @categories= Category.all
+    end 
+
+    def set_product_categories 
+      @product_categories= []
+        @product.product_categories.each do |product_category|
+          @product_categories.push(product_category.category.name)
+        end
     end
 end

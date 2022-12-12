@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
   helper_method :authetication
   helper_method :check_login
+  helper_method :check_category
   protected
  
   def configure_permitted_parameters
@@ -38,5 +39,11 @@ class ApplicationController < ActionController::Base
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   end
+
+  def check_category (x, array)
+    false
+    return true if array.include? x  
+  end
+
   
 end
