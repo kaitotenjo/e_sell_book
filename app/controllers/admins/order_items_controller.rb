@@ -6,6 +6,8 @@ class Admins::OrderItemsController < ApplicationController
 
   def update
     byebug
+    @admins_order_item.update(admins_order_item_params)
+    redirect_back(fallback_location: root_path)
   end
 
   def delete
@@ -15,5 +17,9 @@ class Admins::OrderItemsController < ApplicationController
 
   def set_admins_order_item
     @admins_order_item = Orderitem.find(params[:id])
+  end
+
+  def admins_order_item_params
+    params.permit( :product_id, :quantity)
   end
 end

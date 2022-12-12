@@ -22,17 +22,7 @@ class Admins::UsersController < ApplicationController
 
   # POST /admins/users or /admins/users.json
   def create
-    @admins_user = User.new(admins_user_params)
-
-    respond_to do |format|
-      if @admins_user.save
-        format.html { redirect_to admins_user_url(@admins_user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @admins_user }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @admins_user.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to admins_users_path
   end
 
   # PATCH/PUT /admins/users/1 or /admins/users/1.json
@@ -72,6 +62,6 @@ class Admins::UsersController < ApplicationController
       else
         params[:role]="admin"
       end
-      return params.permit( :name, :email, :role)
+      return params.permit( :name, :email, :role )
     end
 end
