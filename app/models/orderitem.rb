@@ -5,11 +5,7 @@ class Orderitem < ApplicationRecord
   belongs_to :product
 
   def until_price
-    if persisted?
-        self[:price]
-    else
-        product.price
-    end
+    product.price
   end
 
   def total

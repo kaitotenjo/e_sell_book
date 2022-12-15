@@ -5,10 +5,9 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
-    # byebug
+    @products = @q.result(distinct: true).page(params[:q]).per(12)
     if params[:q] == "0"
-      @products=Product.joins(:categories).joins(:product_categories).where(product_categories: {category_id: params[:search]})
+      @products=Product.joins(:categories).joins(:product_categories).where(product_categories: {category_id: params[:search]}).page(params[:search]).per(12)
     end
     @categories= Category.all
   end

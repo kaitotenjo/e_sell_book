@@ -27,7 +27,7 @@
                             <tr>
                                 <th>Product</th>
                                 <th>Quantity</th>
-                                <th>Total</th>
+                                <th>price</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -41,7 +41,7 @@
                                                 </div>
                                                 <div class="product__cart__item__text">
                                                     <h6><%=orderitem.product.name%></h6>
-                                                    <h5><%=orderitem.product.price*orderitem.quantity%></h5>
+                                                    <h5><%=orderitem.total%></h5>
                                                 </div>
                                             </td>
                                             <td class="quantity__item">
