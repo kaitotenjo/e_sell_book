@@ -1,62 +1,59 @@
 <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-7">
-                        <div class="header__top__left">
-                            <p>Free shipping, 30-day return or refund guarantee.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-5">
-                        <div class="header__top__right">
-                            <div class="header__top__links">
-                            <% if user_signed_in? %>
-                                <div class="dropdown">
-                                    <button class="btn dropdown-toggle name-hearder" type="button" data-bs-toggle="dropdown">Account
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li ><a><%= link_to "Profile", user_path(@user) ,class:"s-drop" %></a></li>
-                                        <li ><a><%= link_to "edit", edit_user_registration_path(@user) ,class:"s-drop" %></a></li>
-                                        <li><a><%= link_to "Sign out", destroy_user_session_path, method: :delete ,class:"s-drop"%></a></li>
-                                    <li class="divider"></li>
-                                    </ul>
-                                </div>
-                            <%else%>
-                                <a><%= link_to "register", new_user_registration_path %></a>
-                                <a><%= link_to "Login", new_user_session_path %></a>
-                            <%end%>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="header__top">
+      <div class="container ">
+          <div class="row">
+              <div class="col-lg-12 col-md-5">
+                  <div class="header__top__right">
+                      <div class="header__top__links">
+                      <% if user_signed_in? %>
+                          <div class="dropdown">
+                              <button class="btn dropdown-toggle " type="button" data-bs-toggle="dropdown">Account
+                              <span class="caret"></span></button>
+                              <ul class="dropdown-menu">
+                                  <li ><a><%= link_to "Profile", user_path(@user) ,class:"s-drop" %></a></li>
+                                  <li ><a><%= link_to "edit", edit_user_registration_path(@user) ,class:"s-drop" %></a></li>
+                                  <li><a><%= link_to "Sign out", destroy_user_session_path, method: :delete ,class:"s-drop"%></a></li>
+                              <li class="divider"></li>
+                              </ul>
+                          </div>
+                      <%else%>
+                        <a><%= link_to "Return" ,root_path ,class:"s-drop"%></a>
+                        <a><%= link_to "Help" ,root_path ,class:"s-drop"%></a>
+                        <a><%= link_to "Register", new_user_registration_path ,class:"s-drop" %>/<%= link_to "Login", new_user_session_path ,class:"s-drop" %></a>
+                      <%end%>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-1 col-md-3">
+            <div class="header-icon">
+              <a href="./products"><i class="bi bi-search color-search"></i></a>
             </div>
+          </div>
+          <div class="col-lg-9 col-md-6">
+            <nav class="header__menu mobile-menu">
+              <ul>
+                <li><%= link_to "SHOP", products_path %></li>
+                <li><%= link_to "ESSENTIALS", root_path %></li>
+                <li><a href="./products"><img src="/assets/logo.png" width = "240" height = "50"></a></li>
+                <li><%= link_to "BEST SELLERS", products_path %></li>
+                <li><%= link_to "ABOUT US", root_path %></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-lg-2 col-md-5">
+             <div class="header__nav__option">
+              <a href="#"><img src="/assets/icon/search.png" alt=""></a>
+              <a href="#"><img src="/assets/icon/heart.png" alt=""></a>
+              <a href="#"><img src="/assets/icon/cart.png" alt=""> <span>0</span></a>
+          </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__logo">
-                        <a href="./products"><img src="/assets/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li><%= link_to "Home", root_path %></li>
-                            <li><%= link_to "Shop", products_path %></li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="/assets/icon/search.png" alt=""></a>
-                        <a href="#"><img src="/assets/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="/assets/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
-        </div>
-    </header>
+      </div>
+      <div class="canvas__open"><i class="fa fa-bars"></i></div>
+  </div>
+</header>

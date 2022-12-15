@@ -320,7 +320,6 @@ ol {
 }
 
 .header__top {
-	background: #111111;
 	padding: 10px 0;
 }
 
@@ -331,6 +330,7 @@ ol {
 
 .header__top__right {
 	text-align: right;
+	float: right;
 }
 
 .header__top__links {
@@ -404,7 +404,7 @@ ol {
 }
 
 .header__logo {
-	padding: 30px 0;
+	padding: 15px 0;
 }
 
 .header__logo a {
@@ -479,10 +479,10 @@ ol {
 }
 
 .header__menu ul li a {
-	font-size: 18px;
+	font-size: 16px;
 	color: #111111;
 	display: block;
-	font-weight: 600;
+	font-weight: 300;
 	position: relative;
 	padding: 3px 0;
 }
@@ -505,7 +505,7 @@ ol {
 
 .header__nav__option {
 	text-align: right;
-	padding: 30px 0;
+	padding: 45px 0;
 }
 
 .header__nav__option a {

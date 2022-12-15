@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
 
   def checkout
     @payments = Payment.new(payment_params)
-    @payments.update(:user_id => current_user.id, :order_id=> current_order.id)
+    @payments.update(user_id: current_user.id, order_id: current_order.id)
     @order.update_attribute(:status ,"completed")
     redirect_to root_path
   end
