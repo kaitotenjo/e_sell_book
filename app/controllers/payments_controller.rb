@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :check_login,only: %i[index checkout]
+  before_action :authentication,only: %i[index checkout]
   before_action :current_order,only: %i[index checkout]
 
   def index;end 
@@ -13,10 +13,7 @@ class PaymentsController < ApplicationController
 
   private
 
-    def payment_params
-      params.permit(  :card_number, :MM_YY, :code, :name_card)
-    end
-
-    
-
+  def payment_params
+    params.permit(  :card_number, :MM_YY, :code, :name_card)
+  end
 end

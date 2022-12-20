@@ -19,14 +19,16 @@
                       <%else%>
                         <a><%= link_to "Return" ,root_path ,class:"s-drop"%></a>
                         <a><%= link_to "Help" ,root_path ,class:"s-drop"%></a>
-                        <a><%= link_to "Register", new_user_registration_path ,class:"s-drop" %>/<%= link_to "Login", new_user_session_path ,class:"s-drop" %></a>
+                        <a><%= link_to "Register", new_user_registration_path ,class:"s-drop header-s" %>/<%= link_to "Login", new_user_session_path ,class:"s-drop" %></a>
                       <%end%>
                       </div>
                   </div>
               </div>
+              <hr color="black"/>
           </div>
       </div>
   </div>
+  
   <div class="container">
       <div class="row">
           <div class="col-lg-1 col-md-3">
@@ -45,13 +47,14 @@
               </ul>
             </nav>
           </div>
-
+          <%if user_signed_in?%>
           <div class="col-lg-2 col-md-5">
              <div class="header__nav__option">
-              <a href="#"><img src="/assets/icon/search.png" alt=""></a>
-              <a href="#"><img src="/assets/icon/heart.png" alt=""></a>
-              <a href="#"><img src="/assets/icon/cart.png" alt=""> <span>0</span></a>
+              <%= link_to '<i class="bi bi-person change-icon-color"></i> '.html_safe, user_path(@user) %>
+              <%= link_to '<i class="bi bi-bell change-icon-color"></i> '.html_safe %>
+              <%= link_to '<i class="bi bi-basket change-icon-color"></i> '.html_safe, cart_index_path %>
           </div>
+          <%end%>
         </div>
       </div>
       <div class="canvas__open"><i class="fa fa-bars"></i></div>

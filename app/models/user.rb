@@ -6,6 +6,7 @@ class User < ApplicationRecord
         #  :confirmable
   has_many :orders
   has_many :payments
+  has_many :addresses
   has_one_attached :avatar
   enum role: [:user ,:admin]
   after_commit :add_default_avatar, on:%i[create update] 

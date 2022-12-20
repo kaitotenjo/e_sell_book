@@ -15506,7 +15506,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 15%;
+    width: 20%;
     color: #fff;
     text-align: center;
     opacity: 0.5;
@@ -15540,9 +15540,10 @@
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background: 50% / 100% 100% no-repeat;
+    color: black;
   }
   
   .carousel-control-prev-icon {
@@ -22292,7 +22293,7 @@
   .form-check .form-check-label {
     min-height: 18px;
     display: block;
-    margin-left: 1.75rem;
+    margin-left: 0.25 rem;
     font-size: 0.875rem;
     line-height: 1.5;
   }

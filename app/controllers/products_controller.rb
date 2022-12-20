@@ -5,15 +5,16 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true).page(params[:q]).per(12)
+    @products = @q.result(distinct: true).includes([:image_attachment]).page(params[:page]).per(6)
     if params[:q] == "0"
-      @products=Product.joins(:categories).joins(:product_categories).where(product_categories: {category_id: params[:search]}).page(params[:search]).per(12)
+      @products=Product.joins(:categories).joins(:product_categories).where(product_categories: {category_id: params[:search]}).includes([:image_attachment]).page(params[:page]).per(6)
     end
     @categories= Category.all
   end
 
   # GET /products/1 or /products/1.json
   def show
+   @new_products = Product.last(9)
   end
 
   # GET /products/new

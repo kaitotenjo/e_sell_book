@@ -4,12 +4,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_order
   helper_method :authetication
-  helper_method :check_login
   helper_method :check_category
+  helper_method :is_admin?
   protected
  
   def configure_permitted_parameters
-    # byebug
     added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
@@ -25,13 +24,14 @@ class ApplicationController < ActionController::Base
   end 
 
   def authentication
-    return @user=current_user if user_signed_in?
+    @user=current_user if user_signed_in?
+    return redirect_to user_session_path if @user.nil?
   end
+
+  def is_admin?
+    return redirect_to root_path if @user.role == "user"
+  end 
    
-  def check_login
-    return redirect_to user_session_path if authentication.nil? 
-  end
-  
   def render_not_found
     render :file => "#{RAILS_ROOT}/public/404.html",  :status => 404
   end
@@ -44,6 +44,4 @@ class ApplicationController < ActionController::Base
     false
     return true if array.include? x  
   end
-
-  
 end

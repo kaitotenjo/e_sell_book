@@ -1,5 +1,5 @@
 class OrderitemsController < ApplicationController
-  before_action :check_login
+  before_action :authentication
   before_action :set_order , only: [:create]
   
 
