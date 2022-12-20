@@ -1,424 +1,418 @@
- <section class="hero">
-    <div class="p-5 text-center bg-image rounded-3" style="
-    background-image: url('/assets/hero/hero.jpeg');
-    height: 600px;
-  ">
-  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      
-    </div>
-  </div>
+<section class="hero">
+<div class="p-5 text-center bg-image rounded-3" style="
+background-image: url('/assets/hero/hero.jpeg');
+height: 600px;
+">
+<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+<div class="d-flex justify-content-center align-items-center h-100">
+
+</div>
+</div>
 </div>
 </section>
 
 <section class="product spad padding-setting">
-
-<div class="container ">
-<p class ="content-p"> new Product<p>
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="row slide-setting">
-          <div class="col-lg-4 col-sm-8 mix new-arrivals ">
-              <div class="product__item ">
-                  <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(/assets/product/product-1.jpg);>
-                      <span class="label">New</span>
-                      <ul class="product__hover">
-                          <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
-                          <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                          <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
-                      </ul>
-                  </div>
-                  <div class="product__item__text">
-                      <h6>Piqué Biker Jacket</h6>
-                      <a href="#" class="add-cart">+ Add To Cart</a>
-                      <div class="rating">
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
+  <div class="container ">
+    <p class ="content-p"> NEW PRODUCTS<p>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row slide-setting">
+            <%@new_products.shift(3).each do |new_product|%>
+              <div class="col-lg-4 col-sm-8 mix new-arrivals ">
+                  <div class="product__item ">
+                      <div class="product__item__pic set-bg"  style="background-image: url(<%= rails_blob_url(new_product.image) %>);">
+                          <span class="label">New</span>
+                          <ul class="product__hover">
+                              <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
+                              <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                              <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
+                          </ul>
                       </div>
-                      <h5>$67.24</h5>
-                      <div class="product__color__select">
-                          <label for="pc-1">
-                              <input type="radio" id="pc-1">
-                          </label>
-                          <label class="active black" for="pc-2">
-                              <input type="radio" id="pc-2">
-                          </label>
-                          <label class="grey" for="pc-3">
-                              <input type="radio" id="pc-3">
-                          </label>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-4 col-sm-8 mix hot-sales ">
-              <div class="product__item">
-                  <div class="product__item__pic set-bg" data-setbg="/assets/product/product-2.jpg">
-                      <ul class="product__hover">
-                          <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
-                          <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                          <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
-                      </ul>
-                  </div>
-                  <div class="product__item__text">
-                      <h6>Piqué Biker Jacket</h6>
-                      <a href="#" class="add-cart">+ Add To Cart</a>
-                      <div class="rating">
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                      </div>
-                      <h5>$67.24</h5>
-                      <div class="product__color__select">
-                          <label for="pc-4">
-                              <input type="radio" id="pc-4">
-                          </label>
-                          <label class="active black" for="pc-5">
-                              <input type="radio" id="pc-5">
-                          </label>
-                          <label class="grey" for="pc-6">
-                              <input type="radio" id="pc-6">
-                          </label>
+                      <div class="product__item__text">
+                          <h6><%=new_product.name%></h6>
+                          <div class="rating">
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                          </div>
+                          <h5><%=new_product.price%></h5>
+                          <div class="product__color__select">
+                              <label for="pc-1">
+                                  <input type="radio" id="pc-1">
+                              </label>
+                              <label class="active black" for="pc-2">
+                                  <input type="radio" id="pc-2">
+                              </label>
+                              <label class="grey" for="pc-3">
+                                  <input type="radio" id="pc-3">
+                              </label>
+                          </div>
                       </div>
                   </div>
               </div>
+            <%end%>
           </div>
-          <div class="col-lg-4 col-sm-8 mix new-arrivals ">
-              <div class="product__item">
-                  <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(/assets/product/product-1.jpg);>
-                      <span class="label">New</span>
-                      <ul class="product__hover">
-                          <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
-                          <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                          <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
-                      </ul>
-                  </div>
-                  <div class="product__item__text">
-                      <h6>Piqué Biker Jacket</h6>
-                      <a href="#" class="add-cart">+ Add To Cart</a>
-                      <div class="rating">
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
+        </div>
+        <div class="carousel-item ">
+          <div class="row slide-setting">
+            <%@new_products.shift(3).each do |new_product|%>
+              <div class="col-lg-4 col-sm-8 mix new-arrivals ">
+                  <div class="product__item ">
+                      <div class="product__item__pic set-bg"  style="background-image: url(<%= rails_blob_url(new_product.image) %>);">
+                          <span class="label">New</span>
+                          <ul class="product__hover">
+                              <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
+                              <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                              <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
+                          </ul>
                       </div>
-                      <h5>$67.24</h5>
-                      <div class="product__color__select">
-                          <label for="pc-1">
-                              <input type="radio" id="pc-1">
-                          </label>
-                          <label class="active black" for="pc-2">
-                              <input type="radio" id="pc-2">
-                          </label>
-                          <label class="grey" for="pc-3">
-                              <input type="radio" id="pc-3">
-                          </label>
+                      <div class="product__item__text">
+                          <h6><%=new_product.name%></h6>
+                          <a href="#" class="add-cart">+ Add To Cart</a>
+                          <div class="rating">
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                          </div>
+                          <h5><%=new_product.price%></h5>
+                          <div class="product__color__select">
+                              <label for="pc-1">
+                                  <input type="radio" id="pc-1">
+                              </label>
+                              <label class="active black" for="pc-2">
+                                  <input type="radio" id="pc-2">
+                              </label>
+                              <label class="grey" for="pc-3">
+                                  <input type="radio" id="pc-3">
+                              </label>
+                          </div>
                       </div>
                   </div>
               </div>
+            <%end%>
           </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row slide-setting">
+            <%@new_products.shift(3).each do |new_product|%>
+              <div class="col-lg-4 col-sm-8 mix new-arrivals ">
+                  <div class="product__item ">
+                      <div class="product__item__pic set-bg" style="background-image: url(<%= rails_blob_url(new_product.image) %>);">
+                          <span class="label">New</span>
+                          <ul class="product__hover">
+                              <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
+                              <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                              <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
+                          </ul>
+                      </div>
+                      <div class="product__item__text">
+                          <h6><%=new_product.name%></h6>
+                          <a href="#" class="add-cart">+ Add To Cart</a>
+                          <div class="rating">
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                          </div>
+                          <h5><%=new_product.price%></h5>
+                          <div class="product__color__select">
+                              <label for="pc-1">
+                                  <input type="radio" id="pc-1">
+                              </label>
+                              <label class="active black" for="pc-2">
+                                  <input type="radio" id="pc-2">
+                              </label>
+                              <label class="grey" for="pc-3">
+                                  <input type="radio" id="pc-3">
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <%end%>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="carousel-item">
-      <div class="row slide-setting">
-          <div class="col-lg-4 col-sm-8 mix new-arrivals ">
-              <div class="product__item ">
-                  <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(/assets/product/product-1.jpg);>
-                      <span class="label">New</span>
-                      <ul class="product__hover">
-                          <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
-                          <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                          <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
-                      </ul>
-                  </div>
-                  <div class="product__item__text">
-                      <h6>Piqué Biker Jacket</h6>
-                      <a href="#" class="add-cart">+ Add To Cart</a>
-                      <div class="rating">
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                      </div>
-                      <h5>$67.24</h5>
-                      <div class="product__color__select">
-                          <label for="pc-1">
-                              <input type="radio" id="pc-1">
-                          </label>
-                          <label class="active black" for="pc-2">
-                              <input type="radio" id="pc-2">
-                          </label>
-                          <label class="grey" for="pc-3">
-                              <input type="radio" id="pc-3">
-                          </label>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-4 col-sm-8 mix hot-sales ">
-              <div class="product__item">
-                  <div class="product__item__pic set-bg" data-setbg="/assets/product/product-2.jpg">
-                      <ul class="product__hover">
-                          <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
-                          <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                          <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
-                      </ul>
-                  </div>
-                  <div class="product__item__text">
-                      <h6>Piqué Biker Jacket</h6>
-                      <a href="#" class="add-cart">+ Add To Cart</a>
-                      <div class="rating">
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                      </div>
-                      <h5>$67.24</h5>
-                      <div class="product__color__select">
-                          <label for="pc-4">
-                              <input type="radio" id="pc-4">
-                          </label>
-                          <label class="active black" for="pc-5">
-                              <input type="radio" id="pc-5">
-                          </label>
-                          <label class="grey" for="pc-6">
-                              <input type="radio" id="pc-6">
-                          </label>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-4 col-sm-8 mix new-arrivals ">
-              <div class="product__item">
-                  <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(/assets/product/product-1.jpg);>
-                      <span class="label">New</span>
-                      <ul class="product__hover">
-                          <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
-                          <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                          <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
-                      </ul>
-                  </div>
-                  <div class="product__item__text">
-                      <h6>Piqué Biker Jacket</h6>
-                      <a href="#" class="add-cart">+ Add To Cart</a>
-                      <div class="rating">
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                      </div>
-                      <h5>$67.24</h5>
-                      <div class="product__color__select">
-                          <label for="pc-1">
-                              <input type="radio" id="pc-1">
-                          </label>
-                          <label class="active black" for="pc-2">
-                              <input type="radio" id="pc-2">
-                          </label>
-                          <label class="grey" for="pc-3">
-                              <input type="radio" id="pc-3">
-                          </label>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="row slide-setting">
-          <div class="col-lg-4 col-sm-8 mix new-arrivals ">
-              <div class="product__item ">
-                  <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(/assets/product/product-1.jpg);>
-                      <span class="label">New</span>
-                      <ul class="product__hover">
-                          <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
-                          <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                          <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
-                      </ul>
-                  </div>
-                  <div class="product__item__text">
-                      <h6>Piqué Biker Jacket</h6>
-                      <a href="#" class="add-cart">+ Add To Cart</a>
-                      <div class="rating">
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                      </div>
-                      <h5>$67.24</h5>
-                      <div class="product__color__select">
-                          <label for="pc-1">
-                              <input type="radio" id="pc-1">
-                          </label>
-                          <label class="active black" for="pc-2">
-                              <input type="radio" id="pc-2">
-                          </label>
-                          <label class="grey" for="pc-3">
-                              <input type="radio" id="pc-3">
-                          </label>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-4 col-sm-8 mix hot-sales ">
-              <div class="product__item">
-                  <div class="product__item__pic set-bg" data-setbg="/assets/product/product-2.jpg">
-                      <ul class="product__hover">
-                          <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
-                          <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                          <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
-                      </ul>
-                  </div>
-                  <div class="product__item__text">
-                      <h6>Piqué Biker Jacket</h6>
-                      <a href="#" class="add-cart">+ Add To Cart</a>
-                      <div class="rating">
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                      </div>
-                      <h5>$67.24</h5>
-                      <div class="product__color__select">
-                          <label for="pc-4">
-                              <input type="radio" id="pc-4">
-                          </label>
-                          <label class="active black" for="pc-5">
-                              <input type="radio" id="pc-5">
-                          </label>
-                          <label class="grey" for="pc-6">
-                              <input type="radio" id="pc-6">
-                          </label>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-4 col-sm-8 mix new-arrivals ">
-              <div class="product__item">
-                  <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(/assets/product/product-1.jpg);>
-                      <span class="label">New</span>
-                      <ul class="product__hover">
-                          <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
-                          <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                          <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
-                      </ul>
-                  </div>
-                  <div class="product__item__text">
-                      <h6>Piqué Biker Jacket</h6>
-                      <a href="#" class="add-cart">+ Add To Cart</a>
-                      <div class="rating">
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                      </div>
-                      <h5>$67.24</h5>
-                      <div class="product__color__select">
-                          <label for="pc-1">
-                              <input type="radio" id="pc-1">
-                          </label>
-                          <label class="active black" for="pc-2">
-                              <input type="radio" id="pc-2">
-                          </label>
-                          <label class="grey" for="pc-3">
-                              <input type="radio" id="pc-3">
-                          </label>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
-   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-  </div>
-</div>
 </section>
 
 <section class="instagram spad">
-    <div class="container border-setting">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="instagram__pic">
-                    <div class="instagram__pic__item set-bg" data-setbg="/assets/instagram/instagram-1.jpg"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="/assets/instagram/instagram-2.jpg"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="/assets/instagram/instagram-3.jpg"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="/assets/instagram/instagram-4.jpg"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="/assets/instagram/instagram-5.jpg"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="/assets/instagram/instagram-6.jpg"></div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="instagram__text">
-                    <h2>Instagram</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua.</p>
-                    <h3>#Male_Fashion</h3>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-5">
+          <img src="/assets/home1.png" width="500" height="600">
+      </div>
+      <div class="col-lg-6">
+          <div class="instagram__text">
+              <h3>MACC WEEKLY DISCOUNT</h3>
+              <div id="weeklydiscount" class="carousel slide weekly-discount" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row ">
+                          <%@weeklydiscounts.shift(2).each do |weeklydiscount|%>
+                            <div class="col-lg-6 col-sm-8 mix new-arrivals ">
+                                <div class="product__item ">
+                                    <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(<%= rails_blob_url(weeklydiscount.image) %>)";>
+                                        <span class="label">New</span>
+                                        <ul class="product__hover">
+                                            <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
+                                            <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                            <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><%=weeklydiscount.name%></h6>
+                                        <a href="#" class="add-cart">+ Add To Cart</a>
+                                        <div class="rating">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <h5><%=weeklydiscount.price%></h5>
+                                    </div>
+                                </div>
+                            </div>
+                          <%end%>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row ">
+                          <%@weeklydiscounts.shift(2).each do |weeklydiscount|%>
+                            <div class="col-lg-6 col-sm-8 mix new-arrivals ">
+                                <div class="product__item ">
+                                    <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(<%= rails_blob_url(weeklydiscount.image) %>)";>
+                                        <span class="label">New</span>
+                                        <ul class="product__hover">
+                                            <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
+                                            <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                            <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><%=weeklydiscount.name%></h6>
+                                        <a href="#" class="add-cart">+ Add To Cart</a>
+                                        <div class="rating">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <h5><%=weeklydiscount.price%></h5>
+                                    </div>
+                                </div>
+                            </div>
+                          <%end%>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row ">
+                            <%@weeklydiscounts.shift(2).each do |weeklydiscount|%>
+                            <div class="col-lg-6 col-sm-8 mix new-arrivals ">
+                                <div class="product__item ">
+                                    <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(<%= rails_blob_url(weeklydiscount.image) %>)";>
+                                        <span class="label">New</span>
+                                        <ul class="product__hover">
+                                            <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
+                                            <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                            <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><%=weeklydiscount.name%></h6>
+                                        <a href="#" class="add-cart">+ Add To Cart</a>
+                                        <div class="rating">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <h5><%=weeklydiscount.price%></h5>
+                                    </div>
+                                </div>
+                            </div>
+                          <%end%>
+                        </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#weeklydiscount" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#weeklydiscount" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 </section>
-<section class="latest spad">
-    <div class="container border-setting">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <span>Latest News</span>
-                    <h2>Fashion New Trends</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="/assets/blog/blog-1.jpg"></div>
-                    <div class="blog__item__text">
-                        <span><img src="/assets/icon/calendar.png" alt=""> 16 February 2020</span>
-                        <h5>What Curling Irons Are The Best Ones</h5>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="/assets/blog/blog-2.jpg"></div>
-                    <div class="blog__item__text">
-                        <span><img src="/assets/icon/calendar.png" alt=""> 21 February 2020</span>
-                        <h5>Eternity Bands Do Last Forever</h5>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="/assets/blog/blog-3.jpg"></div>
-                    <div class="blog__item__text">
-                        <span><img src="/assets/icon/calendar.png" alt=""> 28 February 2020</span>
-                        <h5>The Health Benefits Of Sunglasses</h5>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="instagram spad panding-home">
+<div class="container">
+  <div class="row">
+      <div class="col-lg-6">
+          <div class="instagram__text">
+              <h3>MACC TOP SELLINGS</h3>
+              <div id="topselling" class="carousel slide weekly-discount" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <div class="row ">
+                            <%@top_sells.shift(2).each do |top_sell|%>
+                              <div class="col-lg-6 col-sm-8 mix new-arrivals ">
+                                  <div class="product__item ">
+                                      <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(<%= rails_blob_url(top_sell.image) %>);">
+                                          <span class="label">New</span>
+                                          <ul class="product__hover">
+                                              <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
+                                              <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                              <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
+                                          </ul>
+                                      </div>
+                                      <div class="product__item__text">
+                                          <h6><%=top_sell.name%></h6>
+                                          <a href="#" class="add-cart">+ Add To Cart</a>
+                                          <div class="rating">
+                                              <i class="fa fa-star-o"></i>
+                                              <i class="fa fa-star-o"></i>
+                                              <i class="fa fa-star-o"></i>
+                                              <i class="fa fa-star-o"></i>
+                                              <i class="fa fa-star-o"></i>
+                                          </div>
+                                          <h5><%=top_sell.price%></h5>
+                                          <div class="product__color__select">
+                                              <label for="pc-1">
+                                                  <input type="radio" id="pc-1">
+                                              </label>
+                                              <label class="active black" for="pc-2">
+                                                  <input type="radio" id="pc-2">
+                                              </label>
+                                              <label class="grey" for="pc-3">
+                                                  <input type="radio" id="pc-3">
+                                              </label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            <%end%>
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                          <div class="row ">
+                            <%@top_sells.shift(2).each do |top_sell|%>
+                              <div class="col-lg-6 col-sm-8 mix new-arrivals ">
+                                  <div class="product__item ">
+                                      <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(<%= rails_blob_url(top_sell.image) %>);">
+                                          <span class="label">New</span>
+                                          <ul class="product__hover">
+                                              <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
+                                              <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                              <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
+                                          </ul>
+                                      </div>
+                                      <div class="product__item__text">
+                                          <h6><%=top_sell.name%></h6>
+                                          <a href="#" class="add-cart">+ Add To Cart</a>
+                                          <div class="rating">
+                                              <i class="fa fa-star-o"></i>
+                                              <i class="fa fa-star-o"></i>
+                                              <i class="fa fa-star-o"></i>
+                                              <i class="fa fa-star-o"></i>
+                                              <i class="fa fa-star-o"></i>
+                                          </div>
+                                          <h5><%=top_sell.price%></h5>
+                                          <div class="product__color__select">
+                                              <label for="pc-1">
+                                                  <input type="radio" id="pc-1">
+                                              </label>
+                                              <label class="active black" for="pc-2">
+                                                  <input type="radio" id="pc-2">
+                                              </label>
+                                              <label class="grey" for="pc-3">
+                                                  <input type="radio" id="pc-3">
+                                              </label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            <%end%>
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                          <div class="row ">
+                              <%@top_sells.shift(2).each do |top_sell|%>
+                              <div class="col-lg-6 col-sm-8 mix new-arrivals ">
+                                  <div class="product__item ">
+                                      <div class="product__item__pic set-bg" data-setbg="/assets/product/product-1.jpg" style="background-image: url(<%= rails_blob_url(top_sell.image) %>);">
+                                          <span class="label">New</span>
+                                          <ul class="product__hover">
+                                            <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
+                                            <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                            <li><a href="#"><img src="/assets/icon/search.png" alt=""></a></li>
+                                          </ul>
+                                      </div>
+                                      <div class="product__item__text">
+                                          <h6><%=top_sell.name%></h6>
+                                          <a href="#" class="add-cart">+ Add To Cart</a>
+                                          <div class="rating">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                          </div>
+                                          <h5><%=top_sell.price%></h5>
+                                          <div class="product__color__select">
+                                            <label for="pc-1">
+                                                <input type="radio" id="pc-1">
+                                            </label>
+                                            <label class="active black" for="pc-2">
+                                                <input type="radio" id="pc-2">
+                                            </label>
+                                            <label class="grey" for="pc-3">
+                                                <input type="radio" id="pc-3">
+                                            </label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            <%end%>
+                          </div>
+                      </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#topselling" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#topselling" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+        <div class="col-lg-5">
+          <img src="/assets/home2.png" width="500" height="600">
+      </div>
+  </div>
+</div>
 </section>

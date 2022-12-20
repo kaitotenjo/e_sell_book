@@ -1,90 +1,90 @@
- <section class="breadcrumb-option">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb__text">
-                    <h4>Shopping Cart</h4>
-                    <div class="breadcrumb__links">
-                        <a href="./index.html">Home</a>
-                        <a href="./shop.html">Shop</a>
-                        <span>Shopping Cart</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="breadcrumb-option">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb__text">
+                  <h4>Shopping Cart</h4>
+                  <div class="breadcrumb__links">
+                      <a href="./index.html">Home</a>
+                      <a href="./shop.html">Shop</a>
+                      <span>Shopping Cart</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
 <!-- Breadcrumb Section End -->
 
 <!-- Shopping Cart Section Begin -->
 <section class="shopping-cart spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="shopping__cart__table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>price</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <%= form_with(url: cart_update_path) do |f|  %>
-                                    <% @order_items.each do |orderitem|%>
-                                        <tr>
-                                            <td class="product__cart__item">
-                                                <div class="product__cart__item__pic">
-                                                    <%image_tag(orderitem.product.image)%>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8">
+              <div class="shopping__cart__table">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th>Product</th>
+                              <th>Quantity</th>
+                              <th>price</th>
+                              <th></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      <%= form_with(url: cart_update_path) do |f|  %>
+                                  <% @order_items.each do |orderitem|%>
+                                      <tr>
+                                          <td class="product__cart__item">
+                                              <div class="product__cart__item__pic">
+                                                <%image_tag(orderitem.product.image)%>
+                                              </div>
+                                              <div class="product__cart__item__text">
+                                                <h6><%=orderitem.product.name%></h6>
+                                                <h5><%=orderitem.total%></h5>
+                                              </div>
+                                          </td>
+                                          <td class="quantity__item">
+                                              <div class="quantity">
+                                                <div class="pro-qty-2">
+                                                    <%= f.number_field :quantity, name:orderitem.id, value: orderitem.quantity, min: 0 ,class:" pro-qty-2"%>
                                                 </div>
-                                                <div class="product__cart__item__text">
-                                                    <h6><%=orderitem.product.name%></h6>
-                                                    <h5><%=orderitem.total%></h5>
-                                                </div>
-                                            </td>
-                                            <td class="quantity__item">
-                                                <div class="quantity">
-                                                    <div class="pro-qty-2">
-                                                        <%= f.number_field :quantity, name:orderitem.id, value: orderitem.quantity, min: 0 ,class:" pro-qty-2"%>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="cart__price"><%=orderitem.product.price%></td>
-                                            <td class="cart__close"><i class="fa fa-close"></i></td>
-                                        </tr>
-                                    <%end%>
-                                </tbody>
-                            </table>
+                                              </div>
+                                          </td>
+                                          <td class="cart__price"><%=orderitem.product.price%></td>
+                                          <td class="cart__close"><i class="fa fa-close"></i></td>
+                                      </tr>
+                                  <%end%>
+                              </tbody>
+                          </table>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <button type="button" class="btn btn-light setting-update-cart-left">Continue Shopping</button>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                               <button type="button" class="btn btn-light setting-update-cart-left">Continue Shopping</button>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <a> <%= f.submit "update cart" ,class: "btn btn-dark setting-update-cart-right"%></a>
-                            </div>      
-                        </div>
-                        <%end%>
-            </div>
-            <div class="col-lg-4">
-                <div class="cart__discount">
-                    <h6>Discount codes</h6>
-                    <form action="#">
-                        <input type="text" placeholder="Coupon code">
-                        <button type="submit">Apply</button>
-                    </form>
-                </div>  
-                <div class="cart__total">
-                    <h6>Cart total</h6>
-                    <ul>
-                        <li>Subtotal <span><%=current_order.subtotal%></span></li>
-                        <li>Total <span><%=current_order.subtotal%></span></li>
-                    </ul>
-                    <a><%= link_to "checkout", payments_path ,class:"primary-btn" %></a>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <a> <%= f.submit "update cart" ,class: "btn btn-dark setting-update-cart-right"%></a>
+                        </div>      
+                      </div>
+                      <%end%>
+          </div>
+          <div class="col-lg-4">
+              <div class="cart__discount">
+                  <h6>Discount codes</h6>
+                  <form action="#">
+                    <input type="text" placeholder="Coupon code">
+                    <button type="submit">Apply</button>
+                  </form>
+              </div>  
+              <div class="cart__total">
+                  <h6>Cart total</h6>
+                  <ul>
+                    <li>Subtotal <span><%=current_order.subtotal%></span></li>
+                    <li>Total <span><%=current_order.subtotal%></span></li>
+                  </ul>
+                  <a><%= link_to "checkout", checkouts_path ,class:"primary-btn" %></a>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>

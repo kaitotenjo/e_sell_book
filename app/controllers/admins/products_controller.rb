@@ -6,7 +6,7 @@ class Admins::ProductsController < ApplicationController
 
   # GET /admins/products or /admins/products.json
   def index
-    @products = Product.all
+    @products = Product.all.page(params[:page]).per(10)
   end
 
   # GET /admins/products/1 or /admins/products/1.json
@@ -48,7 +48,7 @@ class Admins::ProductsController < ApplicationController
       if params[category.id.to_s]=="1"
         ProductCategory.create(product: @product , category: category) if ProductCategory.find_by(product: @product , category: category).nil?
       else  
-        ProductCategory.find_by(product: @product , category: category).destroy
+        ProductCategory.find_by(product: @product , category: category).destroy if ProductCategory.find_by(product: @product , category: category)
       end
     end
 

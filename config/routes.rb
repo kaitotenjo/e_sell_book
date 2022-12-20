@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root "home#index"
   post '/cart/update', to:'cart#update_quantity'
   post "payments/checkout",to:"payments#checkout"
-  
+  post "checkouts/checkout",to:"checkouts#checkout"
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     
   end
@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :orderitems
   resources :cart
   resources :payments
+  resources :checkouts
 end

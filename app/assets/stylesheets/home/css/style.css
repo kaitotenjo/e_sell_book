@@ -166,6 +166,7 @@ ol {
 	color: #ffffff;
 	background: #000000;
 	letter-spacing: 4px;
+	width: 100%;
 }
 
 .site-btn {
@@ -886,7 +887,7 @@ ol {
 }
 
 .instagram__text {
-	padding-top: 130px;
+	padding-top: 27px;
 }
 
 .instagram__text h2 {
@@ -1561,6 +1562,7 @@ ol {
 
 .product__details__breadcrumb {
 	margin-bottom: 30px;
+	float: left;
 }
 
 .product__details__breadcrumb a {
@@ -1607,7 +1609,7 @@ ol {
 }
 
 .product__details__text {
-	text-align: center;
+	text-align: left;
 }
 
 .product__details__text h4 {
@@ -2544,6 +2546,7 @@ ol {
 	border-bottom: 1px solid #e1e1e1;
 	padding-bottom: 25px;
 	margin-bottom: 30px;
+	padding-top: 27px;
 }
 
 .checkout__input {
