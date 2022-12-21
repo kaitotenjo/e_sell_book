@@ -1,5 +1,7 @@
 class Admins::UsersController < ApplicationController
   before_action :set_admins_user, only: %i[ show edit update destroy ]
+  before_action :authentication
+  before_action :is_admin?
   layout"admins/base"
 
   # GET /admins/users or /admins/users.json

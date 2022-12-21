@@ -1,10 +1,12 @@
 class Admins::OrdersController < ApplicationController
   before_action :set_admins_order, only: %i[ show edit update destroy ]
+  before_action :authentication
+  before_action :is_admin?
   layout"admins/base"
 
   # GET /admins/orders or /admins/orders.json
   def index
-    @admins_orders = Order.all
+    @admins_orders = Order.all.includes([:orderitems])
   end
 
   # GET /admins/orders/1 or /admins/orders/1.json
