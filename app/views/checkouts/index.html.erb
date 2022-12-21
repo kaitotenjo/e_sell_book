@@ -1,74 +1,73 @@
 <section class="checkout spad">
-  <%= form_with(url: checkouts_checkout_path) do |f| %>
-  <div class="container">
-      <div class="checkout__form">
-          <form action="#">
-              <div class="row">
-                  <div class="col-lg-8 col-md-6">
-                      <h6 class="checkout__title">Checkout</h6>
-                       <div class="row">
-                          <div class="col-lg-6">
-                              <div class="checkout__input">
-                                  <%=f.text_field :first_name ,type:"input", placeholder:"Fist Name"%>
-                              </div>
-                          </div>
-                          <div class="col-lg-6">
-                              <div class="checkout__input">
-                                  <%=f.text_field :last_name ,type:"input", placeholder:"Last name"%>
-                              </div>
+<%= form_with(url: checkouts_checkout_path) do |f| %>
+<div class="container">
+    <div class="checkout__form">
+        <form action="#">
+            <div class="row">
+                <div class="col-lg-8 col-md-6">
+                  <h6 class="checkout__title">Checkout</h6>
+                    <div class="row">
+                      <div class="col-lg-6">
+                          <div class="checkout__input">
+                              <%=f.text_field :first_name ,type:"input", placeholder:"Fist Name"%>
                           </div>
                       </div>
-                      <div class="checkout__input"> 
-                          <%=f.text_field :address_detail ,type:"input", placeholder:"Address detail"%>
-                      </div>
-                      <div class="checkout__input"> 
-                          <%=f.text_field :N_A ,type:"input", placeholder:"N/A"%>
-                      </div>
-                      <div class="row">
-                          <div class="col-lg-6">
-                              <div class="checkout__input">
-                                  <%=f.text_field :postal ,type:"input", placeholder:"Zip Postal"%>
-                              </div>
+                      <div class="col-lg-6">
+                          <div class="checkout__input">
+                              <%=f.text_field :last_name ,type:"input", placeholder:"Last name"%>
                           </div>
-                          <div class="col-lg-6">
-                              <div class="checkout__input">
-                                  <%=f.text_field :city ,type:"input", placeholder:"city"%>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="checkout__input">
-                          <%=f.text_field :phone ,type:"input", placeholder:"Phone Number"%>
-                      </div>
-                      <div class="row">
-                          <div class="col-lg-6 col-md-6 col-sm-6">
-                              <%= link_to "Back To Cart", cart_index_path,class:"btn btn-dark setting-update-cart-left" %>
-                          </div>
-                          <div class="col-lg-6 col-md-6 col-sm-6">
-                             <a><%= f.submit "Save and continue", type:"submit", class:"btn btn-dark setting-update-cart-right"%></a>
-                          </div>      
-                      </div> 
-                      
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                      <div class="checkout__order">
-                        <h4 class="order__title">Your order</h4>
-                          <div class="checkout__order__products">Product <span>Total</span></div>
-                          <% @order.orderitems.each do |orderitem|%>
-                          <ul class="checkout__total__products">
-                              <li><%=orderitem.product.name%> <span><%=orderitem.total%></span></li>
-                          </ul>
-                          <%end%>
-                          <ul class="checkout__total__all">
-                              <li>Subtotal <span><%=@order.subtotal%></span></li>
-                              <li>Total <span><%=@order.subtotal%></span></li>
-                          </ul>
-                          <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                          ut labore et dolore magna aliqua.</p>
                       </div>
                   </div>
-              </div>
-          </form>
-      </div>
-  </div>
-    <%end%>
+                  <div class="checkout__input"> 
+                      <%=f.text_field :address_detail ,type:"input", placeholder:"Address detail"%>
+                  </div>
+                  <div class="checkout__input"> 
+                      <%=f.text_field :N_A ,type:"input", placeholder:"N/A"%>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <div class="checkout__input">
+                              <%=f.text_field :postal ,type:"input", placeholder:"Zip Postal"%>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="checkout__input">
+                              <%=f.text_field :city ,type:"input", placeholder:"city"%>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="checkout__input">
+                      <%=f.text_field :phone ,type:"input", placeholder:"Phone Number"%>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-6">
+                          <%= link_to "Back To Cart", cart_index_path,class:"btn btn-dark setting-update-cart-left" %>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-6">
+                          <a><%= f.submit "Save and continue", type:"submit", class:"btn btn-dark setting-update-cart-right"%></a>
+                      </div>      
+                  </div> 
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <div class="checkout__order">
+                    <h4 class="order__title">Your order</h4>
+                      <div class="checkout__order__products">Product <span>Total</span></div>
+                      <% @order.orderitems.each do |orderitem|%>
+                      <ul class="checkout__total__products">
+                          <li><%=orderitem.product.name%> <span><%=orderitem.total%></span></li>
+                      </ul>
+                      <%end%>
+                      <ul class="checkout__total__all">
+                          <li>Subtotal <span><%=@order.subtotal%></span></li>
+                          <li>Total <span><%=@order.subtotal%></span></li>
+                      </ul>
+                      <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
+                      ut labore et dolore magna aliqua.</p>
+                  </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+  <%end%>
 </section>

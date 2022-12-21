@@ -2,6 +2,8 @@ class Admins::ProductsController < ApplicationController
   before_action :set_admins_product, only: %i[ show edit update destroy ]
   before_action :set_categories, only: %i[edit new create update]
   before_action :set_product_categories , only: %i[edit]
+  before_action :authentication
+  before_action :is_admin?
   layout"admins/base"
 
   # GET /admins/products or /admins/products.json
