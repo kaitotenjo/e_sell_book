@@ -1,3 +1,6 @@
+<%if flash[:alert].present?%>
+  <%= render "shared/model_alert", flash%>
+<%end%>
 <section class="breadcrumb-option">
 <div class="container">
     <div class="row">

@@ -9,35 +9,35 @@
                     <div class="row">
                       <div class="col-lg-6">
                           <div class="checkout__input">
-                              <%=f.text_field :first_name ,type:"input", placeholder:"Fist Name"%>
+                              <%=f.text_field :first_name ,type:"input",value:@address.first_name, placeholder:"Fist Name"%>
                           </div>
                       </div>
                       <div class="col-lg-6">
                           <div class="checkout__input">
-                              <%=f.text_field :last_name ,type:"input", placeholder:"Last name"%>
+                              <%=f.text_field :last_name ,type:"input", value: @address.last_name,placeholder:"Last name"%>
                           </div>
                       </div>
                   </div>
                   <div class="checkout__input"> 
-                      <%=f.text_field :address_detail ,type:"input", placeholder:"Address detail"%>
+                      <%=f.text_field :address_detail , value:@address.address_detail,type:"input", placeholder:"Address detail"%>
                   </div>
                   <div class="checkout__input"> 
-                      <%=f.text_field :N_A ,type:"input", placeholder:"N/A"%>
+                      <%=f.text_field :N_A ,type:"input",value: @address.N_A , placeholder:"N/A"%>
                   </div>
                   <div class="row">
                       <div class="col-lg-6">
                           <div class="checkout__input">
-                              <%=f.text_field :postal ,type:"input", placeholder:"Zip Postal"%>
+                              <%=f.text_field :postal ,type:"input", value:@address.postal,placeholder:"Zip Postal"%>
                           </div>
                       </div>
                       <div class="col-lg-6">
                           <div class="checkout__input">
-                              <%=f.text_field :city ,type:"input", placeholder:"city"%>
+                              <%=f.text_field :city ,type:"input",value:@address.city, placeholder:"city"%>
                           </div>
                       </div>
                   </div>
                   <div class="checkout__input">
-                      <%=f.text_field :phone ,type:"input", placeholder:"Phone Number"%>
+                      <%=f.text_field :phone ,type:"input",value:@address.phone, placeholder:"Phone Number"%>
                   </div>
                   <div class="row">
                       <div class="col-lg-6 col-md-6 col-sm-6">

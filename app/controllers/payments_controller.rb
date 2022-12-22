@@ -7,8 +7,14 @@ class PaymentsController < ApplicationController
   def checkout
     @payments = Payment.new(payment_params)
     @payments.update(user_id: current_user.id, order_id: current_order.id)
-    @order.update_attribute(:status ,"completed")
-    redirect_to root_path
+    if check_order_items
+      @order.update(status: "completed" )
+      flash[:alert] = "order Success"
+      redirect_to  payments_path
+    else
+      flash[:alert] = "not enough amount"
+      redirect_to cart_index_path
+    end 
   end
 
   private
@@ -16,4 +22,16 @@ class PaymentsController < ApplicationController
   def payment_params
     params.permit(  :card_number, :MM_YY, :code, :name_card)
   end
+
+  def check_order_items
+    @order.orderitems.each do |orderitem|
+      if orderitem.product.amount < orderitem.quantity
+        return false
+        break
+      else
+        return true
+      end
+    end
+  end
+
 end

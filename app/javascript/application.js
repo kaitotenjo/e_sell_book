@@ -4,3 +4,4 @@ import "owl.carousel";
 import "@fortawesome/fontawesome-free";
 import "trix";
 import "@rails/actiontext";
+import "admin/custom";

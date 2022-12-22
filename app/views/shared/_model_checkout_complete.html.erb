@@ -1,0 +1,23 @@
+ <div id="Modal-checkout" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Notification</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="/assets/payment_1.png" alt="Italian Trulli">
+          <h3 class="paymemt__order">Order Placed Successfully</h3>
+          <p class ="payment__text">Your Order Has Been Placed Successfull We'll Try To Ship It To Your Door Step As Soon We Can. Cheers </p>
+        </div>
+        <div class="modal-footer">
+            <%= link_to "Continue Shopping", products_path ,class:"btn btn-light" %>
+        </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#Modal-checkout").modal('show');
+    });
+</script>

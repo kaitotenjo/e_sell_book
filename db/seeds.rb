@@ -10,7 +10,7 @@ category3= Category.find_by(name: "adventure")
 name = "product_body_spray #{n+1}"
 price = "400"
 discription=" khong biet viet gi cung duoc ha"
-amount= n+1
+amount= n+2
 product = Product.create(
   name:  name,
   price: price,
@@ -29,7 +29,7 @@ end
 name = "product_face_mask #{n+1}"
 price = "34"
 discription=" khong biet viet gi cung duoc ha"
-amount= n+1
+amount= n+2
 product = Product.create(
   name:  name,
   price: price,
@@ -47,7 +47,7 @@ end
 name = "product_stay_free_utra_pad #{n+1}"
 price = "250"
 discription=" khong biet viet gi cung duoc ha"
-amount= n+1
+amount= n+2
 product = Product.create(
   name:  name,
   price: price,
