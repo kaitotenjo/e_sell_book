@@ -6,12 +6,11 @@ class OrderitemsController < ApplicationController
   def create
     @orderitem = @order.orderitems.new(order_params)
     @orderitem = @order.orderitems.find_by(product_id: @orderitem.product_id, order_id: @order.id)
-    if @orderitem.nil? 
-      # @order.save
-      flash[:success] = "Create Product Success"
+    if params[:quantity].to_i <= Product.find_by(id: params[:product_id]).amount
+      @orderitem.nil? ?  @order.save : @orderitem.update(quantity: params[:quantity])
+      flash[:alert] = "Create Product Success"
     else 
-      # @orderitem.update_attribute(:quantity,params[:quantity])
-      flash[:success] = "update complete"
+      flash[:alert] = "not enough amount"
     end
     redirect_back(fallback_location: root_path)
   end

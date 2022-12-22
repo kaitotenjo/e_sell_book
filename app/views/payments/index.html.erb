@@ -1,3 +1,6 @@
+<%if flash[:alert].present?%>
+  <%= render "shared/model_checkout_complete" %>
+<%end%>
 <section class="checkout spad">
 <%= form_with(url: payments_checkout_path) do |f| %>
 <div class="container">
@@ -62,35 +65,24 @@
                         <%=f.text_field "name_card" ,type:"input", placeholder:"NAME ON THE CARD"%>
                     </div>
                     <div class="row">
+                      <%if @order.nil?%>
+                       <div class="col-lg-6 col-md-6 col-sm-6">
+                          <%= link_to "back to product", products_path,class:"btn btn-dark setting-update-cart-right" %>
+                        </div>
+                      <%else%>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                           <%= link_to "Back To checkout", checkouts_path,class:"btn btn-dark setting-update-cart-left" %>
                         </div>
                          <div class="col-lg-6 col-md-6 col-sm-6">
-                        <button type="button" class="btn btn-dark setting-update-cart-right" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                          Place Order
-                        </button>  
+                         <a><%= f.submit "checkout", type:"submit", class:"btn btn-dark setting-update-cart-right"%></a> 
                          </div>    
+                      <%end%>
                     </div> 
                 </div>
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <img src="/assets/payment_1.png" alt="Italian Trulli">
-                        <h3 class="paymemt__order">Order Placed Successfully</h3>
-                        <p class ="payment__text">Your Order Has Been Placed Successfull We'll Try To Ship It To Your Door Step As Soon We Can. Cheers </p>
-                      </div>
-                      <div class="modal-footer">
-                        <a><%= f.submit "CONTINUE SHOPPING", type:"submit", class:"btn btn-dark "%></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <div class="col-lg-4 col-md-6">
+                  <%if @order.nil?%>
+                    <img src="/assets/payment_checkout.png"  width="600" height="500">
+                  <%else%>
                     <div class="checkout__order">
                         <h4 class="order__title">Your order</h4>
                         <div class="checkout__order__products">Product <span>Total</span></div>
@@ -106,6 +98,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
                         ut labore et dolore magna aliqua.</p>
                     </div>
+                  <%end%>
                 </div>
             </div>
         </form>

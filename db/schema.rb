@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_080539) do
 
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "order_id", null: false
     t.string "first_name"
     t.string "last_name"
     t.string "address_detail"
@@ -60,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_080539) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_addresses_on_order_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -146,6 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_080539) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "addresses", "orders"
   add_foreign_key "addresses", "users"
   add_foreign_key "orderitems", "orders"
   add_foreign_key "orderitems", "products"
