@@ -6,8 +6,12 @@ class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true).includes([:image_attachment]).page(params[:page]).per(6)
-    if params[:q] == "0"
-      @products=Product.joins(:categories).joins(:product_categories).where(product_categories: {category_id: params[:search]}).includes([:image_attachment]).page(params[:page]).per(6)
+    case params[:q]
+      when "category_search"
+        @products= Product.joins(:categories).joins(:product_categories).where(product_categories: {category_id: params[:search]}).includes([:image_attachment]).page(params[:page]).per(6)
+      when "top_selling"
+        @products= Kaminari.paginate_array(Product.all.sort_by{|product| product.top_selling}.last(6)).page(params[:page]).per(6)
+      else
     end
     @categories= Category.all
   end

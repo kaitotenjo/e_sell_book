@@ -1,3 +1,20 @@
+ <div id="myModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.<span class="badge">By <a href="https://webdevrahul007.w3spaces.com/"></a>Rahul jangid</span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
 <section class="shop-details">
   <div class="product__details__pic">
     <div class="container">
@@ -11,7 +28,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-1 col-md-3">
+            <div class="col-lg-1 col-md-3 custom__scroll">
                 <ul class="nav nav-tabs" role="tablist">
                     <% @product.pictures.each do |picture|%>
                     <li class="nav-item">
@@ -29,6 +46,7 @@
                           <%=image_tag(@product.image)%>
                       </div>
                     </div>
+                    
                     <% @product.pictures.includes([:blob]).each do |picture|%>
                     <div class="tab-pane" id="tabs-2" role="tabpanel">
                       <div class="product__details__pic__item">
@@ -61,8 +79,11 @@
                     </div>
                   </div>
                 </div>
-                  <a><%= f.submit "Add To Cart" ,class:"primary-btn " %></a>
+                  <a><%= f.submit "Add To Cart" ,class:"primary-btn "%></a>
                 <% end %>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Launch static backdrop modal
+                  </button>
                 <p ><%= @product.discription%></p>
                 <div class="product__details__last__option">
                     <h5><span>Guaranteed Safe Checkout</span></h5>

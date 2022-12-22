@@ -7,7 +7,6 @@ class Product < ApplicationRecord
     has_rich_text :body
     after_commit :add_default_image, on:%i[create update] 
     
-
     private
 
     def add_default_image
