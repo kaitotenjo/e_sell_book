@@ -6,7 +6,7 @@
           <div class="card-body">
             <h4 class="card-title">order items</h4>
             <div class="table-responsive">
-            <%= link_to "add",new_admins_user_path,class:"btn btn-success add-user" %>
+            <%= link_to "add",new_admins_order_item_path,class:"btn btn-success add-user" %>
               <table class="table table-striped">
                 <thead>
                   <tr>
@@ -43,16 +43,16 @@
                         <%= @admins_order.id%>
                       </td>
                       <td>
-                        <%= order_item.product.id%>
+                        <%= order_item.product_id%>
                       </td>
                       <td>
                         <%= order_item.quantity%>
                       </td>
                       <td>
-                        <%= order_item.product.price%>
+                        <%= order_item.until_price%>
                       </td>
                       <td>
-                        <%= order_item.product.price*order_item.quantity%>
+                        <%= order_item.total%>
                       </td>
                       <td>
                       <%= link_to "edit",  edit_admins_order_item_path(order_item),class:"btn btn-success" %>
