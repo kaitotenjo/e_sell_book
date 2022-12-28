@@ -9,6 +9,9 @@ class PaymentsController < ApplicationController
     @payments.update(user_id: current_user.id, order_id: current_order.id)
     if check_order_items
       @order.update(status: "completed" )
+      @order.orderitems.each do |orderitem|
+        orderitem.product.update(amount: orderitem.product.amount - orderitem.quantity )
+      end
       flash[:alert] = "order Success"
       redirect_to  payments_path
     else

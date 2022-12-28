@@ -6,7 +6,7 @@ class Orderitem < ApplicationRecord
   before_save :add_top_selling
 
   def until_price
-    product.price
+    Product.with_deleted.find_by(id: product_id).price
   end
 
   def total

@@ -83,12 +83,17 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__right">
-                                <p>Sort by Price:</p>
-                                <select>
-                                    <option value="">Low To High</option>
-                                    <option value="">$0 - $55</option>
-                                    <option value="">$55 - $100</option>
-                                </select>
+                                <div class="dropdown">
+                                  <button class="btn border-setting" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Sort by Price
+                                    <span><i class="bi bi-chevron-down"></i></span>
+                                  </button>
+                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100px !important">
+                                    <li><%= link_to "0$-100$", products_path(max: 100, q: "sort_by", min:0) %></li>
+                                    <li><%= link_to "100$-300$",products_path(max: 300, q: "sort_by", min:100)  %></li>
+                                    <li><%= link_to "300$-400$",products_path(max: 400, q: "sort_by", min:300)  %></li>
+                                  </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -98,6 +103,11 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="/assets/product/product-2.jpg" style="background-image: url(<%= rails_blob_url(product.image) %>)"; >
+                            <%if product.amount == 0%>
+                            <span class="sould_out label ">Sold Out</span>
+                            <%else%>
+                            <span class="label">New</span>
+                            <%end%>
                                 <ul class="product__hover">
                                     <li><a href="#"><img src="/assets/icon/heart.png" alt=""></a></li>
                                     <li><a href="#"><img src="/assets/icon/compare.png" alt=""> <span>Compare</span></a>
@@ -107,7 +117,11 @@
                             </div>
                             <div class="product__item__text">
                                 <h6><%=product.name%></h6>
-                                <a > <%= link_to "Detail", product_path(product) ,class:"add-cart"%></a>
+                                <%if product.amount == 0%>
+                               <a class="sould_out"> SOLD OUT</a>
+                                <%else%>
+                                 <a > <%= link_to "Detail", product_path(product) ,class:"add-cart"%></a>
+                                <%end%>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>

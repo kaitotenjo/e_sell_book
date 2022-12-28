@@ -19,17 +19,17 @@
                     <% @product.pictures.each do |picture|%>
                     <li class="nav-item">
                       <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
-                          <%= image_tag(picture,height: "90", width: "90")%>
+                          <%= image_tag(picture)%>
                       </a>
                     </li>
                     <%end%>
                 </ul>
             </div>
-            <div class="col-lg-5 col-md-9">
+            <div class="col-lg-5 col-md-9 product__image">
                 <div class="tab-content">
                     <div class="tab-pane active" id="tabs-1" role="tabpanel">
                       <div class="product__details__pic__item">
-                          <%=image_tag(@product.image)%>
+                          <%=image_tag(@product.image, height: "300", width: "500")%>
                       </div>
                     </div>
                     

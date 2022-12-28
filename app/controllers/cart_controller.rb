@@ -6,10 +6,13 @@ class CartController < ApplicationController
 
   def  update_quantity
     @order_items.each do |order_item|
-      if params[order_item.id.to_s] == "0"
+      case 
+      when params[order_item.id.to_s]=="0"
         order_item.delete
-      else
-        order_item.update_attribute(:quantity,params[order_item.id.to_s])
+      when params[order_item.id.to_s].to_i > order_item.product.amount
+        flash[:alert] = "not enough amount"
+      else 
+        order_item.update(quantity: params[order_item.id.to_s])
       end
     end
     redirect_back(fallback_location: root_path)
