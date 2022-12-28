@@ -12,6 +12,7 @@ class PaymentsController < ApplicationController
       @order.orderitems.each do |orderitem|
         orderitem.product.update(amount: orderitem.product.amount - orderitem.quantity )
       end
+      UserMailer.with(user: current_user ,order: @order).ordersuccess.deliver_now
       flash[:alert] = "order Success"
       redirect_to  payments_path
     else
