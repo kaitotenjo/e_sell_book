@@ -11,6 +11,9 @@ class ProductsController < ApplicationController
         @products= Product.joins(:categories).joins(:product_categories).where(product_categories: {category_id: params[:search]}).includes([:image_attachment]).page(params[:page]).per(6)
       when "top_selling"
         @products= Kaminari.paginate_array(Product.all.sort_by{|product| product.top_selling}.last(6)).page(params[:page]).per(6)
+      when "sort_by"
+        @products= Product.where("price<=?",params[:max])
+        @products= @products.where("price>=?",params[:min]).page(params[:page]).includes([:image_attachment]).per(6)
       else
     end
     @categories= Category.all

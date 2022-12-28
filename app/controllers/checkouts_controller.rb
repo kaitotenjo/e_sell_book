@@ -4,6 +4,7 @@ class CheckoutsController < ApplicationController
   before_action :set_address,only: %i[index]
 
   def index
+    @address= Address.new
   end
 
   def checkout
